@@ -26,16 +26,16 @@ then
                         cur_cnt=`grep $srchstrTocopy /tmp/SAUGATA/count.txt|awk -F "=" '{print $2}'`
                         if [[ $file_cnt -gt $cur_cnt ]];
                         then
-							SPARK_JOB
-							if [[ $? -eq 0 ]];
-							then
-								echo "Spark JOB submitted!"
-								str_srch=$srchstrTocopy"="$cur_cnt
-								str_repl=$srchstrTocopy"="$file_cnt
-								sed -i "s/$str_srch/$str_repl/g" /tmp/SAUGATA/count.txt
-							else
-								echo "SPARK_JOB Failed!"
-							fi
+			    SPARK_JOB
+			    if [[ $? -eq 0 ]];
+			    then
+			    	echo "Spark JOB submitted!"
+			    	str_srch=$srchstrTocopy"="$cur_cnt
+			    	str_repl=$srchstrTocopy"="$file_cnt
+			    	sed -i "s/$str_srch/$str_repl/g" /tmp/SAUGATA/count.txt
+			    else
+			    	echo "SPARK_JOB Failed!"
+			    fi
                         else
                         echo "Bye!"
                         fi
